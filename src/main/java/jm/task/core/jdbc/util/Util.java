@@ -15,7 +15,6 @@ public class Util {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
             if (!connection.isClosed()) {
                 System.out.println("Соединение с БД установлено");
             }
