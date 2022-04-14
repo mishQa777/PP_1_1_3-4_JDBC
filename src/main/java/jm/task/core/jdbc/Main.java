@@ -25,5 +25,7 @@ public class Main {
             USER_SERVICE.getAllUsers().toString();
             USER_SERVICE.cleanUsersTable();
             USER_SERVICE.dropUsersTable();
+
+
     }
 }
