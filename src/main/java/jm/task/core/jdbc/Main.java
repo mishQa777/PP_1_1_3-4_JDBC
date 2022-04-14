@@ -3,10 +3,6 @@ package jm.task.core.jdbc;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
-import jm.task.core.jdbc.util.Util;
-
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class Main {
     private static final UserService USER_SERVICE = new UserServiceImpl();
@@ -16,7 +12,7 @@ public class Main {
     private static final User user4 = new User("Zaur", "Tregulov", (byte) 34);
 
     public static void main(String[] args) {
-        // реализуйте алгоритм здесь
+
             USER_SERVICE.createUsersTable();
             USER_SERVICE.saveUser(user1.getName(), user1.getLastName(), user1.getAge());
             USER_SERVICE.saveUser(user2.getName(), user2.getLastName(), user2.getAge());

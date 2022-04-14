@@ -6,32 +6,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
-    private static final String URL = "jdbc:mysql://localhost:3306/mydbtest";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "123qwe456rty";
-
-    public static Connection getConnection() {
-
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            if (!connection.isClosed()) {
-                System.out.println("Соединение с БД установлено");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return connection;
-    }
-
 
     private static SessionFactory sessionFactory;
 
@@ -39,7 +16,6 @@ public class Util {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
-
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/mydbtest");
@@ -60,5 +36,4 @@ public class Util {
         }
         return sessionFactory;
     }
-
 }
