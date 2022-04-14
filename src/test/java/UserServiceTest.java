@@ -1,6 +1,7 @@
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import org.hibernate.HibernateException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ public class UserServiceTest {
         try {
             userService.dropUsersTable();
             userService.dropUsersTable();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             Assert.fail("При тестировании удаления таблицы произошло исключение\n" + e);
         }
     }
